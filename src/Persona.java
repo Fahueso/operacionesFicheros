@@ -1,18 +1,23 @@
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Persona implements Serializable {
-    private static final long serialVersionUID = 2L;
+public class Persona extends SerVivo implements Serializable {
+    private static final long serialVersionUID = 3L;
     private String nombre;
     private int edad;
     private ArrayList<Libro> biblioteca = new ArrayList<>();
 
-    public Persona(String nombre, int edad, ArrayList<Libro> biblioteca) {
+
+    public Persona(String especie, LocalDate fechaNacimiento, String nombre, int edad, ArrayList<Libro> biblioteca) {
+        super(especie, fechaNacimiento);
         this.nombre = nombre;
         this.edad = edad;
         setBiblioteca(biblioteca);
     }
+
+
 
     public String getNombre() {
         return nombre;
@@ -45,6 +50,7 @@ public class Persona implements Serializable {
                 "nombre='" + nombre + '\'' +
                 ", edad=" + edad +
                 ", biblioteca=" + biblioteca +
+                "," + super.toString() +
                 '}';
     }
 

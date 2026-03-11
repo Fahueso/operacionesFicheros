@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class GestionPersona {
@@ -37,12 +38,13 @@ public class GestionPersona {
         Libro l2 = new Libro("2","C","D");
         ArrayList<Libro> biblioteca = new ArrayList<>();
         biblioteca.add(l1); biblioteca.add(l2);
-        Persona persona1 = new Persona("Juan", 30, biblioteca);
+        Persona persona1 = new Persona("Humano", LocalDate.now(), "Juan", 30, biblioteca);
+
         Libro l3 = new Libro("3","A","B");
         Libro l4 = new Libro("4","C","D");
         ArrayList<Libro> biblioteca2 = new ArrayList<>();
         biblioteca2.add(l3); biblioteca2.add(l4);
-        Persona persona2 = new Persona("Luis", 40, biblioteca2);
+        Persona persona2 = new Persona("Humano", LocalDate.now() , "Luis", 40, biblioteca2);
         ArrayList<Persona> clase = new ArrayList<>();
         clase.add(persona1);clase.add(persona2);
 
