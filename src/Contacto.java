@@ -1,4 +1,8 @@
-public class Contacto {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Contacto implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nombre;
     private int edad;
     private String telefono;
@@ -40,6 +44,18 @@ public class Contacto {
                 ", edad='" + edad + '\'' +
                 ", telefono='" + telefono + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Contacto contacto = (Contacto) o;
+        return edad == contacto.edad && Objects.equals(nombre, contacto.nombre) && Objects.equals(telefono, contacto.telefono);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, edad, telefono);
     }
 }
 
